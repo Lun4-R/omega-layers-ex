@@ -1,0 +1,23 @@
+:root{
+    --background-body: #590061;
+    --background-header: #610059;
+    --color-base: hsl(283, 97%, 27%);
+    --color-primary: #ad0082;
+    --color-hover: #080029;
+    --color-hover-strong: #1f0029;
+    --color-contrast: #7200dd;
+    --color-success: #381b5a;
+    --button-dark: #500a91;
+    --notification--error: #7824a9;
+    --notification--success: #38a019;
+    --notification--special: #947f1f;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+img[src*=".svg"]{
+    filter: invert(0.5);
+}
+
