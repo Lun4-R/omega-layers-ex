@@ -1,4 +1,4 @@
-class BetaniumLayer
+class TestLayer
 {
     constructor()
     {
