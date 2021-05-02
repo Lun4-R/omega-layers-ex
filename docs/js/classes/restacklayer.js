@@ -9,13 +9,13 @@ class ReStackLayer
             prestigeGains: new RestackLayerUpgrade("All Prestige gains are higher",
                 level => this.getPermUpgradeCost(),
                 level => Decimal.pow(128, level), {
-                    maxLevel: 1
+                    maxLevel: 2
                 }),
             layerExponentialBoostFactorTime: new RestackLayerUpgrade("The Layer Exponential Factor increases over time",
                 level => this.getPermUpgradeCost(),
-                level => Math.min(1, this.timeSpent / 28800) * 3 * level.toNumber(), {
+                level => Math.min(1, this.timeSpent / 56600) * 9 * level.toNumber(), {
                     maxLevel: 1,
-                    getEffectDisplay: effectDisplayTemplates.numberStandard(4, "+")
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(6, "+")
                 }),
             upgradeEffects: new RestackLayerUpgrade("All Upgrade Effects are stronger (including Tree Upgrades)",
                 level => this.getPermUpgradeCost(),
@@ -229,7 +229,7 @@ class ReStackLayer
 
     canMeta()
     {
-        return game.highestLayer >= 23 && this.metaUpgrade.level.gt(0);
+        return game.highestLayer >= 48 && this.metaUpgrade.level.gt(0);
     }
 
     goMeta()

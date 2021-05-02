@@ -2,7 +2,7 @@ var dtOld = Date.now();
 var dtNew = Date.now();
 var minimizedLayer = 0;
 let saveTimer = 0;
-const INFINITY = Decimal.pow(2, 1024);
+const INFINITY = Decimal.pow(2, 2048);
 
 let keyMap = [];
 let tabMap = {};

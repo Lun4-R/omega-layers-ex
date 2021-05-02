@@ -5,7 +5,7 @@ Vue.component("settings-menu", {
             settings: game.settings,
             exportString: "The exported Save String will appear here. Keep it somewhere safe. Also it cannot be imported to VANILLA VERSION!" +
                 " Click Import to load the save string from the text field.",
-            themes: [["Dark || Default", "dark.css"], ["Light || Eyerape Warning", "light.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"], ["Light-Crimson", "crimson.css"], ["Dark-Crimson", "crimson-original.css"]]
+            themes: [["Dark || Default", "dark.css"], ["Light || Eyerape Warning", "light.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"], ["Light-Crimson", "crimson.css"], ["Dark-Crimson", "crimson-original.css"], ["Emerald", "emerald.css"]]
         }
     },
     mounted: function()
@@ -151,7 +151,7 @@ Vue.component("settings-menu", {
 <div class="settings-row">
     <p>Controls: M to Max All on the selected Layer<br/>
     Left and Right Arrows to change Layers<br/>
-    P to Prestige the selected Layer || Disabled when layer has been Volatilited<br/>
+    P to Prestige the selected Layer || Disabled when layer has been Non-Volatilited<br/>
     First Letter of a tab ([L]ayers, [V]olatility) to select it; C to select Achievements</p>
 </div>
 <div class="credits">
