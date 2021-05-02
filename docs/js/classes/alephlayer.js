@@ -4,22 +4,18 @@ class AlephLayer
     {
         this.aleph = new Decimal(0);
         this.upgrades = {
-            alephGain: new AlephUpgrade("Aleph Power MK.I", level => Decimal.pow(4, level).mul(10),
+            alephGain: new AlephUpgrade("Aleph Power MK.I", level => Decimal.pow(16, level).mul(10),
                 level => Decimal.pow(2 + game.restackLayer.permUpgrades.aleph.apply(), level)),
-                alephGain2: new AlephUpgrade("Aleph Power MK.II", level => Decimal.pow(8, level).mul(1e10),
+                alephGain2: new AlephUpgrade("Aleph Power MK.II", level => Decimal.pow(320, level).mul(1e10),
                 level => Decimal.pow(2.5 + game.restackLayer.permUpgrades.aleph.apply(), level)),
-                alephGain3: new AlephUpgrade("Aleph Power MK.III", level => Decimal.pow(16, level).mul(1e25),
-                level => Decimal.pow(3 + game.restackLayer.permUpgrades.aleph.apply(), level)),
-                alephGain4: new AlephUpgrade("Aleph Power MK.IV", level => Decimal.pow(32, level).mul(1e75),
-                level => Decimal.pow(3.25 + game.restackLayer.permUpgrades.aleph.apply(), level)),
             alephGainBonus: new AlephUpgrade("Aleph Percentance Power MK.I",
                 level => Utils.createValueDilation(Decimal.pow(1e6, level).mul(1e6), 0.02),
-                level => new Decimal(1).add(level.pow(1.1)).mul(Decimal.pow(1.05, Decimal.max(level.sub(10), 0))), {
+                level => new Decimal(1).add(level.mul(0.05)).mul(Decimal.pow(1.05, Decimal.max(level.sub(10), 0))), {
                     getEffectDisplay: effectDisplayTemplates.percentStandard(3, "", " %", 0)
                 }),
                 alephGainBonus2: new AlephUpgrade("Aleph Percentance Power MK.II",
                 level => Utils.createValueDilation(Decimal.pow(1e12, level).mul(1e12), 0.02),
-                level => new Decimal(1).add(level.pow(1.3)).mul(Decimal.pow(1.05, Decimal.max(level.sub(10), 0))), {
+                level => new Decimal(1).add(level.mul(0.25)).mul(Decimal.pow(1.05, Decimal.max(level.sub(10), 0))), {
                     getEffectDisplay: effectDisplayTemplates.percentStandard(3, "", " %", 0)
                 }),
             alephBoost: new AlephUpgrade("Gain more Aleph based on the log(ℵ) you have",
@@ -59,9 +55,9 @@ class AlephLayer
                 level => Utils.createValueDilation(Decimal.pow(1e30, level).mul(1e100), 0.005, new Decimal("1e650")),
                 level => Decimal.pow(1.6, level)),
             layerExponentialBoost: new AlephUpgrade("Increase the exponential difference of boosts between layers, resulting in a large boost!",
-                level => level.lt(6) ? new Decimal([1e10, 1e20, 1e40, 1e80, 1e160, 1e320][level.toNumber()]) : Decimal.dInf,
-                level => [22, 25, 27, 30, 33, 37, 41][level.toNumber()], {
-                    maxLevel: 6,
+                level => level.lt(6) ? new Decimal([1e100, 1e200, 1e300][level.toNumber()]) : Decimal.dInf,
+                level => [22, 25, 27][level.toNumber()], {
+                    maxLevel: 3,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0, "")
                 })
         };
@@ -69,7 +65,7 @@ class AlephLayer
 
     getAlephGain()
     {
-        return this.upgrades.alephGain.apply().mul(this.upgrades.alephGainBonus.apply().mul(this.upgrades.alephGain2.apply()).mul(this.upgrades.alephGain3.apply()).mul(this.upgrades.alephGain4.apply()).mul(this.upgrades.alephGainBonus2.apply()))
+        return this.upgrades.alephGain.apply().mul(this.upgrades.alephGainBonus.apply().mul(this.upgrades.alephGain2.apply()).mul(this.upgrades.alephGainBonus2.apply()))
             .mul(this.getAlephBoostFromLayer())
             .mul(this.upgrades.alephBoost.apply())
             .mul(this.upgrades.alephBoost2.apply())

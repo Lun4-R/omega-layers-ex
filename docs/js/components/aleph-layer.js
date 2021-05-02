@@ -39,8 +39,6 @@ Vue.component("aleph-layer", {
 <div class="upgrades">
     <aleph-upgrade :upgrade="aleph.upgrades.alephGain"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.alephGain2"></aleph-upgrade>
-    <aleph-upgrade :upgrade="aleph.upgrades.alephGain3"></aleph-upgrade>
-    <aleph-upgrade :upgrade="aleph.upgrades.alephGain4"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.alephGainBonus"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.alephGainBonus2"></aleph-upgrade>
 </div>
