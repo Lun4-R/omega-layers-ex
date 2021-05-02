@@ -12,9 +12,19 @@ Vue.component("guide-tab", {
     },
     template: `<div class="guide-tab">
     <guide-item>
+    <template v-slot:title>v0.4.10 UPDATE</template>
+    <template v-slot:text>Fixed Aleph going into infinity limit but soon it may go again... Removed few aleph power upgrades and made cost scaling much higher... Made Going Meta requirment to be 125th layer... Restack unlocks at 20th layer and some restack upgrades are endless... Nerfed generator power... Added Emerald theme and made Crimson-Dark text be lighter</template>
+</guide-item>
+    <guide-item>
+        <template v-slot:title>Welcome To Omega Layers EX! || Spoilers Ahead!</template>
+        <template v-slot:text>Hello! Thanks for playing my mod version of Omega Layers! But what will you experience in this mod? Well i am glad you asked!
+        In this mod you will have more stuff at early and meta stage. I will be adding new restack upgrades and aleph upgrades!!! But thats not all ;) Figure
+        all by yourself out! KrisNT#7674</template>
+    </guide-item>
+    <guide-item>
         <template v-slot:title>Getting Started</template>
         <template v-slot:text>In Omega Layers, your Goal is to produce Resources (e.g. &alpha;) and Prestige for higher Resources. You can buy
-        things like Generators and Upgrades to accomplish that.<br/>
+        things like Generators and Upgrades to accomplish that. Also this game is practically endless so dont worry about reaching end soon!<br/>
         To start, click the  "+1 &alpha;" button until you have 10 &alpha;. With 10 &alpha;, you can buy a Generator &alpha;<sub>1</sub>, which
         produces 1 &alpha; every second. Continue buying Generators to increase your &alpha; production.</template>
     </guide-item>

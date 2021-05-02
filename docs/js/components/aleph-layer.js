@@ -35,18 +35,23 @@ Vue.component("aleph-layer", {
 <div class="tabs">
     <button @click="aleph.maxAll()">Max All (M)</button>
 </div>
+<h3>Aleph Power Gainers T 1 || Pre-Infinity<h3>
 <div class="upgrades">
     <aleph-upgrade :upgrade="aleph.upgrades.alephGain"></aleph-upgrade>
+    <aleph-upgrade :upgrade="aleph.upgrades.alephGain2"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.alephGainBonus"></aleph-upgrade>
+    <aleph-upgrade :upgrade="aleph.upgrades.alephGainBonus2"></aleph-upgrade>
 </div>
-<h3>Enhancers</h3>
+<h3>Aleph Enhancers T 1 || Pre-Infinity</h3>
 <div class="upgrades">
     <aleph-upgrade :upgrade="aleph.upgrades.deltaBoost"></aleph-upgrade>
+    <aleph-upgrade :upgrade="aleph.upgrades.epsilonBoost"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.alephBoost"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.powerGenerators"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.prestigeNoPowerBoost"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.betterBetaFormula"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.alephBoost2"></aleph-upgrade>
+    <aleph-upgrade :upgrade="aleph.upgrades.alephBoost3"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.prestigeRewards"></aleph-upgrade>
     <aleph-upgrade :upgrade="aleph.upgrades.layerExponentialBoost"></aleph-upgrade>
 </div>

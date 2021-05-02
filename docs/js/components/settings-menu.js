@@ -3,9 +3,9 @@ Vue.component("settings-menu", {
     {
         return {
             settings: game.settings,
-            exportString: "The exported Save String will appear here. Keep it somewhere safe." +
+            exportString: "The exported Save String will appear here. Keep it somewhere safe. Also it cannot be imported to VANILLA VERSION!" +
                 " Click Import to load the save string from the text field.",
-            themes: [["Dark", "dark.css"], ["Light", "light.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"], ["Crimson", "crimson.css"], ["Emerald", "emerald.css"]]
+            themes: [["Dark || Default", "dark.css"], ["Light || Eyerape Warning", "light.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"], ["Light-Crimson", "crimson.css"], ["Dark-Crimson", "crimson-original.css"], ["Emerald", "emerald.css"]]
         }
     },
     mounted: function()
@@ -77,7 +77,7 @@ Vue.component("settings-menu", {
             {
                 if(!ret)
                 {
-                    functions.createNotification(new Notification(NOTIFICATION_ERROR, "Error importing Game", "images/save.svg"));
+                    functions.createNotification(new Notification(NOTIFICATION_ERROR, "Error importing Game || Corrupted or Modded Save", "images/save.svg"));
                 }
                 else if(ret === -1)
                 {
@@ -146,17 +146,18 @@ Vue.component("settings-menu", {
     <button @click="copy()">Copy to Clipboard</button>
     <button @click="paste()">Paste from Clipboard</button>
     <button @click="clear()">Clear</button>
-    <button @click="download()">Download as .txt</button>
+    <button @click="download()">Download as .txt file format</button>
 </div>
 <div class="settings-row">
     <p>Controls: M to Max All on the selected Layer<br/>
     Left and Right Arrows to change Layers<br/>
-    P to Prestige the selected Layer<br/>
+    P to Prestige the selected Layer || Disabled when layer has been Non-Volatilited<br/>
     First Letter of a tab ([L]ayers, [V]olatility) to select it; C to select Achievements</p>
 </div>
 <div class="credits">
     <h4>Credits</h4>
     <p>Inspiration: Antimatter Dimensions by hevipelle, Infinite Layers by dan-simon</p>
+    <p>This game is inspried from Omega Layers</p>
     <p>Powered by vue.js and break eternity.js</p>
 </div>
 </div>`

@@ -2,7 +2,7 @@ var dtOld = Date.now();
 var dtNew = Date.now();
 var minimizedLayer = 0;
 let saveTimer = 0;
-const INFINITY = Decimal.pow(2, 1024);
+const INFINITY = Decimal.pow(2, 2048);
 
 let keyMap = [];
 let tabMap = {};
@@ -49,7 +49,7 @@ function tickGame(seconds)
             titleInfo = game.metaLayer.active ? "Layer " + functions.formatNumber(game.metaLayer.layer.add(1), 3, 0) : functions.formatNumber(game.currentLayer.resource, 2, 0, 1e9) + " " + game.currentLayer.name;
             break;
     }
-    document.title = "Ω-Lλγers" + (game.settings.titleStyle !== 0 ? ":" : "") + " " + titleInfo;
+    document.title = "Ω-Lλγers EX" + (game.settings.titleStyle !== 0 ? ":" : "") + " " + titleInfo;
 
     if(saveTimer > 30)
     {

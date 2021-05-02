@@ -6,21 +6,17 @@ class ReStackLayer
         this.timeSpent = 0;
         this.timesReset = 0;
         this.permUpgrades = {
-            prestigeGains: new RestackLayerUpgrade("All Prestige gains are higher",
-                level => this.getPermUpgradeCost(),
-                level => Decimal.pow(128, level), {
-                    maxLevel: 1
+            prestigeGains: new RestackLayerUpgrade("All Prestige gains are higher", level => Decimal.pow(16, level),
+                level => Decimal.pow(4, level), {
                 }),
-            layerExponentialBoostFactorTime: new RestackLayerUpgrade("The Layer Exponential Factor increases over time",
-                level => this.getPermUpgradeCost(),
-                level => Math.min(1, this.timeSpent / 28800) * 3 * level.toNumber(), {
-                    maxLevel: 1,
-                    getEffectDisplay: effectDisplayTemplates.numberStandard(4, "+")
+            layerExponentialBoostFactorTime: new RestackLayerUpgrade("The Layer Exponential Factor is higher", level => Decimal.pow(32, level),
+            level => Decimal.pow(1.05, level), {
+                maxLevel: 25,
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(6, "+")
                 }),
-            upgradeEffects: new RestackLayerUpgrade("All Upgrade Effects are stronger (including Tree Upgrades)",
-                level => this.getPermUpgradeCost(),
-                level => new Decimal(1).add(level.mul(2)), {
-                    maxLevel: 1,
+            upgradeEffects: new RestackLayerUpgrade("All Upgrade Effects are stronger (including Tree Upgrades)", level => Decimal.pow(64, level),
+            level => Decimal.pow(1.005, level), {
+                    maxLevel: 10,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
             powerGenerators: new RestackLayerUpgrade("All Power Generators are stronger",
@@ -42,10 +38,10 @@ class ReStackLayer
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0, "+")
                 })
         };
-        this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second",
+        this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second", level => Decimal.pow(1e10, level),
             level => new Decimal(1e10),
-            level => 1 + 0.2 * level.toNumber(),{
-                maxLevel: 1
+            level => 1 + 0.5 * level.toNumber(),{
+                maxLevel: 3
             });
         this.upgradeTree = [
             [
@@ -143,7 +139,7 @@ class ReStackLayer
 
     isUnlocked()
     {
-        return game.highestLayer >= 10;
+        return game.highestLayer >= 20;
     }
 
     getPermUpgradeCost()
@@ -154,7 +150,7 @@ class ReStackLayer
     getRestackGain()
     {
         let l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
-        return l >= 9 ? Decimal.pow(10, l.sub(10).floor()) : new Decimal(0);
+        return l >= 0 ? Decimal.pow(10, l.sub(20).floor()) : new Decimal(0);
     }
 
     allPermUpgradesBought()
@@ -197,7 +193,7 @@ class ReStackLayer
 
     restack(reward = true)
     {
-        if(reward && game.settings.confirmations && !confirm("Are you sure you want to ReStack? You will lose all progress in exchange for Layer Coins."))
+        if(reward && game.settings.confirmations && !confirm("Are you sure you want to ReStack? You will lose all progress in exchange for Layer Coins. Also Think before resetting! It can be grindy again to come back!"))
         {
             return;
         }
@@ -229,14 +225,14 @@ class ReStackLayer
 
     canMeta()
     {
-        return game.highestLayer >= 23 && this.metaUpgrade.level.gt(0);
+        return game.highestLayer >= 135 && this.metaUpgrade.level.gt(0);
     }
 
     goMeta()
     {
         this.restack(false);
         game.metaLayer.active = true;
-        functions.createNotification(new Notification(NOTIFICATION_SPECIAL, "Other Times await..."));
+        functions.createNotification(new Notification(NOTIFICATION_SPECIAL, "Other Times await... ANd now you can make it true"));
     }
 
     tick(dt)
