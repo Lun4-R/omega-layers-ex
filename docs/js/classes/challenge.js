@@ -5,7 +5,7 @@ var CHALLENGE_REWARD_POWERGENERATORS = 0, CHALLENGE_REWARD_GENMULTI = 1, CHALLEN
 
 class Challenge
 {
-    constructor(layer, name, getEffect, getReward, effectType, rewardType, goalLayer, goalResource, maxLevel = 2, cfg)
+    constructor(layer, name, getEffect, getReward, effectType, rewardType, goalLayer, goalResource, maxLevel = 10, cfg)
     {
         this.layer = layer;
         this.name = name;

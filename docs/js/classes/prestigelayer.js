@@ -140,7 +140,7 @@ class PrestigeLayer
     createUpgrades()
     {
         let rand = new Random(this.layer);
-        let upgradeCount = 15 + rand.nextInt(5);
+        let upgradeCount = 7 + rand.nextInt(5);
         this.upgrades = [];
         let bpGrowth = 10.5 + rand.nextDouble();
         for(let i = 0; i < upgradeCount; i++)
