@@ -38,7 +38,7 @@ class ReStackLayer
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0, "+")
                 })
         };
-        this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second",
+        this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second", level => Decimal.pow(1e10, level),
             level => new Decimal(1e10),
             level => 1 + 0.5 * level.toNumber(),{
                 maxLevel: 3
