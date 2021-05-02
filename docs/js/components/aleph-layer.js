@@ -12,7 +12,7 @@ Vue.component("aleph-layer", {
         },
         isSoftCapped: function()
         {
-            return this.aleph.aleph.gt(1e30000);
+            return this.aleph.aleph.gt(1e300);
         }
     },
     methods: {
