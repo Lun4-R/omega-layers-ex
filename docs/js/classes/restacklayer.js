@@ -139,7 +139,7 @@ class ReStackLayer
 
     isUnlocked()
     {
-        return game.highestLayer >= 20;
+        return game.highestLayer >= 10;
     }
 
     getPermUpgradeCost()
@@ -150,7 +150,7 @@ class ReStackLayer
     getRestackGain()
     {
         let l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
-        return l >= 0 ? Decimal.pow(10, l.sub(20).floor()) : new Decimal(0);
+        return l >= 0 ? Decimal.pow(10, l.sub(10).floor()) : new Decimal(0);
     }
 
     allPermUpgradesBought()
@@ -193,7 +193,7 @@ class ReStackLayer
 
     restack(reward = true)
     {
-        if(reward && game.settings.confirmations && !confirm("Are you sure you want to ReStack? You will lose all progress in exchange for Layer Coins. Also Think before resetting! It can be grindy again to come back!"))
+        if(reward && game.settings.confirmations && !confirm("Are you sure you want to ReStack? You will lose all progress in exchange for Layer Coins."))
         {
             return;
         }
