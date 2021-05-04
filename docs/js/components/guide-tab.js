@@ -12,6 +12,14 @@ Vue.component("guide-tab", {
     },
     template: `<div class="guide-tab">
     <guide-item>
+    <template v-slot:title>v0.5.2 || Future Update</template>
+    <template v-slot:text>Increased ReStack upgrade cap by +1 for few upgrades...</template>
+</guide-item>
+    <guide-item>
+    <template v-slot:title>v0.5.11.a3 || Current version</template>
+    <template v-slot:text>Added 4 New ℵ upgrades... To bully you Meta is now only available at 128th Layer... But in return i added +1 extra level for every ReStack upgrades... </template>
+</guide-item>
+    <guide-item>
         <template v-slot:title>Getting Started</template>
         <template v-slot:text>In Omega Layers, your Goal is to produce Resources (e.g. &alpha;) and Prestige for higher Resources. You can buy
         things like Generators and Upgrades to accomplish that.<br/>
