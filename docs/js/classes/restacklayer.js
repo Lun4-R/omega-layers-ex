@@ -140,18 +140,18 @@ class ReStackLayer
 
     isUnlocked()
     {
-        return game.highestLayer >= 0;
+        return game.highestLayer >= 5;
     }
 
     getPermUpgradeCost()
     {
-        return Decimal.pow(10, Object.values(this.permUpgrades).filter(u => u.level.gt(0)).length).floor();
+        return Decimal.pow(25, Object.values(this.permUpgrades).filter(u => u.level.gt(0)).length).floor();
     }
 
     getRestackGain()
     {
         let l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
-        return l >= 0 ? Decimal.pow(7, l.sub(0).floor()) : new Decimal(0);
+        return l >= 0 ? Decimal.pow(7, l.sub(5).floor()) : new Decimal(0);
     }
 
     allPermUpgradesBought()
