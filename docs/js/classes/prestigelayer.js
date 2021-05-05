@@ -500,7 +500,7 @@ class PrestigeLayer
 
     canGenerateNextLayer()
     {
-        return this.resource.gt(this.getPrestigeLimit().pow(10 / 20));
+        return this.resource.gt(this.getPrestigeLimit().pow(39 / 40));
     }
 
     canPrestige()
