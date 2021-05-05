@@ -15,9 +15,9 @@ class ReStackLayer
                     maxLevel: 5
                 }),
             layerExponentialBoostFactorTime: new RestackLayerUpgrade("The Layer Exponential Factor increases over time", level => Decimal.pow(256, level).mul(1e4),
-                level => Math.min(1, this.timeSpent / 28800) * 3 * level.toNumber(), {
+                level => Math.min(1, this.timeSpent / 28800) * 10 * level.toNumber(), {
                     maxLevel: 2,
-                    getEffectDisplay: effectDisplayTemplates.numberStandard(4, "+")
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(5, "+")
                 }),
             upgradeEffects: new RestackLayerUpgrade("All Upgrade Effects are stronger (including Tree Upgrades)", level => Decimal.pow(512, level).mul(5e4),
                 level => new Decimal(1).add(level.pow(1.5)), {
