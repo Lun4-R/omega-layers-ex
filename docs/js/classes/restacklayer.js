@@ -140,7 +140,7 @@ class ReStackLayer
 
     isUnlocked()
     {
-        return game.highestLayer >= 5;
+        return game.highestLayer >= 1;
     }
 
     getPermUpgradeCost()
@@ -151,7 +151,7 @@ class ReStackLayer
     getRestackGain()
     {
         let l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
-        return l >= 0 ? Decimal.pow(7, l.sub(5).floor()) : new Decimal(0);
+        return l >= 0 ? Decimal.pow(7, l.sub(1).floor()) : new Decimal(0);
     }
 
     allPermUpgradesBought()

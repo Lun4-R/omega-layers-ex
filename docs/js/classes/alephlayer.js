@@ -4,8 +4,8 @@ class AlephLayer
     {
         this.aleph = new Decimal(0);
         this.upgrades = {
-            alephGain: new AlephUpgrade("Increase your Aleph gain", level => Decimal.pow(4, level).mul(100),
-                level => Decimal.pow(1.2 + game.restackLayer.permUpgrades.aleph.apply(), level)),
+            alephGain: new AlephUpgrade("Increase your Aleph gain", level => Decimal.pow(2.4, level).mul(100),
+                level => Decimal.pow(1.6 + game.restackLayer.permUpgrades.aleph.apply(), level)),
             alephGainBonus: new AlephUpgrade("Get a Bonus to Aleph gain",
                 level => Utils.createValueDilation(Decimal.pow(1000, level).mul(1000), 0.02),
                 level => new Decimal(1).add(level.mul(0.1)).mul(Decimal.pow(1.05, Decimal.max(level.sub(10), 0))), {
@@ -16,15 +16,15 @@ class AlephLayer
                 level => new Decimal(1).add(Decimal.max(0, game.alephLayer.aleph).add(1).log10().mul(level).mul(0.05)).pow(2.5)),
             deltaBoost: new AlephUpgrade("Gain more δ",
                 level => Decimal.pow(1e5, level).mul(1e3),
-                level => Decimal.pow(10, level), {
-                    maxLevel: 4
+                level => Decimal.pow(1000, level), {
+                    maxLevel: 8
                 }),
             powerGenerators: new AlephUpgrade("All Power Generators on every Layer are stronger",
                 level => Utils.createValueDilation(Decimal.pow(1e5, Decimal.pow(level, 1.5)).mul(1e20), 0.001),
-                level => Decimal.pow(1.5, level)),
+                level => Decimal.pow(2, level)),
                 powerGenerators2: new AlephUpgrade("All Power Generators on every Layer are even more stronger",
                 level => Utils.createValueDilation(Decimal.pow(1e10, Decimal.pow(level, 1.5)).mul(1e40), 0.001),
-                level => Decimal.pow(1.75, level)),
+                level => Decimal.pow(4, level)),
             prestigeNoPowerBoost: new AlephUpgrade("Increase Prestige Reward on all Layers that don't have Power Generators",
                 level => Decimal.pow(1e8, level).mul(1e22),
                 level => Decimal.pow(2, level), {

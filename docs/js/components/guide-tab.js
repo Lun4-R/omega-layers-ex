@@ -12,12 +12,8 @@ Vue.component("guide-tab", {
     },
     template: `<div class="guide-tab">
     <guide-item>
-    <template v-slot:title>v0.5.2 || Future Update</template>
-    <template v-slot:text>Increased ReStack upgrade cap by +1 for few upgrades...</template>
-</guide-item>
-    <guide-item>
-    <template v-slot:title>v0.5.11.a3 || Current version</template>
-    <template v-slot:text>Added 4 New ℵ upgrades... To bully you Meta is now only available at 128th Layer... But in return i added +1 extra level for every ReStack upgrades... </template>
+    <template v-slot:title>v0.5.2.a1</template>
+    <template v-slot:text>I made game easier by making cost scaling weaker for all upgrades... So u wont hit layer walls that easy...</template>
 </guide-item>
     <guide-item>
         <template v-slot:title>Getting Started</template>
