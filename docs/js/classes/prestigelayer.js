@@ -478,14 +478,14 @@ class PrestigeLayer
 
     getExponentialBoostFactor()
     {
-        return game.alephLayer.upgrades.layerExponentialBoost.apply() + game.restackLayer.permUpgrades.layerExponentialBoostFactor.apply()
+        return game.restackLayer.permUpgrades.layerExponentialBoostFactor.apply()
             + game.restackLayer.permUpgrades.layerExponentialBoostFactorTime.apply();
     }
 
     //the factor of how much the power on the prestige formula is
     static getPrestigeCarryOverForLayer(layer)
     {
-        return 20 * Math.pow(1.1, Utils.clamp(layer - 2, 0, 5));
+        return 20 * Math.pow(1.3, Utils.clamp(layer - 2, 0, 5));
     }
 
     getPrestigeCarryOver()
