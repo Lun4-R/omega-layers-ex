@@ -18,6 +18,7 @@ Vue.component("resource-upgrade", {
     template: `<button :disabled="!canAfford || !isUnlocked" @click="upgrade.buy()" class="upgrade" :class="{maxed: maxed}">
 <p v-html="upgrade.description"></p>
 <p v-html="upgrade.getEffectDisplay()"></p>
+<p v-html="upgrade.amount"></p>
 <p class="price">{{upgrade.getPriceDisplay()}} <span v-if="upgrade.level.lt(upgrade.maxLevel)" v-html="resourcename"></span></p>
 </button>`
 });

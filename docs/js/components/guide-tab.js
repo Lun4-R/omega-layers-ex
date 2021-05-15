@@ -3,6 +3,8 @@ Vue.component("guide-tab", {
         betaUnlocked: () => game.layers.length >= 2 || game.metaLayer.active,
         gammaUnlocked: () => game.layers.length >= 3 || game.metaLayer.active,
         epsilonUnlocked: () => game.layers.length >= 5 || game.metaLayer.active,
+        exaUnlocked: () => game.layers.length >= 60 || game.metaLayer.active,
+        exraUnlocked: () => game.layers.length >= 90 || game.metaLayer.active,
         alephUnlocked: () => game.alephLayer.isUnlocked() || game.metaLayer.active,
         restackUnlocked: () => game.restackLayer.isUnlocked() || game.metaLayer.active,
         metaUnlocked: () => game.metaLayer.active
@@ -11,10 +13,6 @@ Vue.component("guide-tab", {
         formatNumber: (n, prec, prec1000, lim) => functions.formatNumber(n, prec, prec1000, lim)
     },
     template: `<div class="guide-tab">
-    <guide-item>
-    <template v-slot:title>v0.5.2.a1</template>
-    <template v-slot:text>I made game easier by making cost scaling weaker for all upgrades... So u wont hit layer walls that easy...</template>
-</guide-item>
     <guide-item>
         <template v-slot:title>Getting Started</template>
         <template v-slot:text>In Omega Layers, your Goal is to produce Resources (e.g. &alpha;) and Prestige for higher Resources. You can buy
@@ -89,11 +87,21 @@ Vue.component("guide-tab", {
     </guide-item>
     <guide-item v-if="restackUnlocked">
         <template v-slot:title>ReStack</template>
-        <template v-slot:text>After unlocking &beta;, you are able to ReStack. This resets all progress so far in exchange for Layer Coins, which can be spent
+        <template v-slot:text>After unlocking &epsilon;, you are able to ReStack. This resets all progress so far in exchange for Layer Coins, which can be spent
         on powerful Upgrades. If you feel like you took the wrong Path on the permanent Upgrades, you can respec. You will get all spent Layer Coins back but you do
-        a ReStack without any rewards. ReStack yields 50x more Layer Coins for every new Layer unlocked.
+        a ReStack without any rewards. ReStack yields 25x more Layer Coins for every new Layer unlocked.
         </template>
     </guide-item>
+    <guide-item v-if="exaUnlocked">
+        <template v-slot:title>?????</template>
+        <template v-slot:text>So... You have made it this far? Heh... And still isn't game hard? Don't make me laugh... I know that you will be playing this game for many hours more... I know that you will leave you'r computer open overnight... To just get to that Meta... But i promise EXRA-Stage is going to be pain...
+        </template>
+    </guide-item>
+    <guide-item v-if="exraUnlocked">
+    <template v-slot:title>???</template>
+    <template v-slot:text>Wait... You are still here? Bu-But why? You know it... It's impossible to get to Meta... It's was a lie... Always... It never was there... Its just some stupid rumor about it an-and... you should give up......
+    </template>
+</guide-item>
     <guide-item v-if="metaUnlocked">
         <template v-slot:title>Meta</template>
         <template v-slot:text>You just woke up from the Layer dream and realized that a new Layer is just another Layer. You can now buy Upgrades to increase your Resource

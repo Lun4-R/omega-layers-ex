@@ -14,7 +14,7 @@ class PowerGenerator extends Generator
 
     getProductionMulti()
     {
-        let multi = new Decimal(2);
+        let multi = new Decimal(1);
         for(let l of game.layers)
         {
             for(let upg of l.getAllUpgrades().filter(u => u.type === UPGRADE_POWERGENERATOR_TIMELAYER && u.layerBoost === this.layer || (u.type === UPGRADE_POWERGENERATOR && u.layerBoost === this.layer && u.cfg.generators.includes(this.id))))

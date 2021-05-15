@@ -3,33 +3,13 @@ Vue.component("news-ticker", {
     {
         return {
             messages: [
-                "Every Incremental needs a News Ticker",
-                "1.79769313e308 / 10 -IGN",
-                "Powered by RNG",
-                "Maybe there are new News here? Nope, just the old news...",
-                "The Number limit is above 10↑↑308, good luck!",
-                "Your ad here",
-                "ζ is Fake News!",
-                "Suggest more messages in the Discord!",
-                "The Cell is the Powerhouse of the Mitochondria",
-                "\"where is the potato layer ?!\" - some pig dude",
-                "\"Imagine quoting your name on your news ticker\" - ???",
-                "\"if you hit a wall, keep hitting\" -winston churchill",
-                "Die, frickin pie - PewDiePie",
-                `<span style="color: hsl(0, 100%, 50%)">R</span>`
-                +` <span style="color: hsl(45, 100%, 50%)">A</span>`
-                +` <span style="color: hsl(90, 100%, 50%)">I</span>`
-                +` <span style="color: hsl(135, 100%, 50%)">N</span>`
-                +` <span style="color: hsl(180, 100%, 50%)">B</span>`
-                +` <span style="color: hsl(225, 100%, 50%)">O</span>`
-                +` <span style="color: hsl(270, 100%, 50%)">W</span>`,
-                "This definitly beats Mega Layers! -RΨZΞΠ 9 935ΘX",
-                "hey, I bet this isnt a newsticker. Or is it?",
-                "(╯°□°）╯︵ ┻━┻   -   TableFlipper07",
-                "Don't click the X at the top right, it's a game breaking bug!",
-                "Nerf This!",
-                "To nerf, or not to nerf. That is the Question!",
-                "A news ticker. How original.",
+                "Omega Layers is the best Idle Game ever! Every day I come home from an exhausting day at work, I like to sit on the couch, take out my Laptop and have a nice session of Omega Layers. It fills my heart with joy when I see 1e23572357238972384723589 α on my Laptop Screen. I hope one day to finally achieve meta, it will be my biggest achievement. Thank you for your kind attention!",
+                "when you get softcapped like bruh",
+                "Good news: everything is (softcapped)!",
+                "bad news: everything is at ee308 exept the fact that my game broke",
+                "ReStack sponsored by RAID: Shadow Legends",
+                "When you hear something banging outside its prob Kris smashing some tables y'know",
+                "Bruh",
                 () =>
                 {
                     let res = "";
@@ -43,7 +23,7 @@ Vue.component("news-ticker", {
                 () => "This Number is randomly generated -> " + Math.pow(10, Math.random() * 3.01).toFixed(2) +
                     ". If it's above 1,000, consider yourself lucky!",
                 () => `<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">get Layer ` + PrestigeLayer.getNameForLayer(game.metaLayer.active ? game.metaLayer.layer.add(1).floor() : game.layers.length) + ` now [working 2020]</a>`,
-                () => functions.formatNumber(game.metaLayer.active ? game.metaLayer.getApproxAlpha() : game.layers[0].resource, 2, 0, 1e9) + " α? That's rookie numbers",
+                () => functions.formatNumber(game.metaLayer.active ? game.metaLayer.getApproxAlpha() : game.layers[0].resource, 2, 0, 1e9) + " α? Thats 0% of amount tables i break",
                 () => "Motto of the Day: " + Utils.getMOTD()
             ],
             currentMessage: "",

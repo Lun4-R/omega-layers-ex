@@ -265,7 +265,7 @@ class PrestigeLayer
         }
         let boostRes = Decimal.min(this.resource, INFINITY).mul(Decimal.pow(Decimal.max(1, this.resource.div(INFINITY)), 0.2));
         let challengePow = game.currentChallenge && game.currentChallenge.type === CHALLENGE_EFFECT_UPGRADESTRENGTH_SIMPLEBOOST ? game.currentChallenge.applyEffect() : 1;
-        let boost = boostRes.add(1).pow(2 * Math.pow(this.getExponentialBoostFactor(), this.layer - 1)).pow(challengePow);
+        let boost = boostRes.add(0.2).pow(2 * Math.pow(this.getExponentialBoostFactor(), this.layer - 1)).pow(challengePow);
         return this.hasSimpleBoost() ? boost : new Decimal(1);
     }
 
@@ -485,7 +485,7 @@ class PrestigeLayer
     //the factor of how much the power on the prestige formula is
     static getPrestigeCarryOverForLayer(layer)
     {
-        return 24 * Math.pow(1.6, Utils.clamp(layer - 2, 0, 5));
+        return 24 * Math.pow(1.25, Utils.clamp(layer - 2, 0, 128));
     }
 
     getPrestigeCarryOver()
@@ -500,7 +500,7 @@ class PrestigeLayer
 
     canGenerateNextLayer()
     {
-        return this.resource.gt(this.getPrestigeLimit().pow(20 / 24));
+        return this.resource.gt(this.getPrestigeLimit().pow(10 / 40));
     }
 
     canPrestige()
