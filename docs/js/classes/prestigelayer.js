@@ -223,7 +223,7 @@ class PrestigeLayer
             power = Decimal.pow(this.getExponentialBoostFactor(), diff - 1).mul(2);
         }
         let challengePow = game.currentChallenge && game.currentChallenge.type === CHALLENGE_EFFECT_PRICES_POWER ? game.currentChallenge.applyEffect().pow(-1) : 1;
-        return this.power.add(1).pow(power.mul(1.8)).pow(challengePow);
+        return this.power.add(1).pow(power.mul(1.38)).pow(challengePow);
     }
 
     hasPower()
@@ -478,14 +478,14 @@ class PrestigeLayer
 
     getExponentialBoostFactor()
     {
-        return game.restackLayer.permUpgrades.layerExponentialBoostFactor.apply()
+        return game.alephLayer.upgrades.layerExponentialBoost.apply() + game.restackLayer.permUpgrades.layerExponentialBoostFactor.apply()
             + game.restackLayer.permUpgrades.layerExponentialBoostFactorTime.apply();
     }
 
     //the factor of how much the power on the prestige formula is
     static getPrestigeCarryOverForLayer(layer)
     {
-        return 20 * Math.pow(1.3, Utils.clamp(layer - 2, 0, 5));
+        return 24 * Math.pow(1.6, Utils.clamp(layer - 2, 0, 5));
     }
 
     getPrestigeCarryOver()
@@ -500,7 +500,7 @@ class PrestigeLayer
 
     canGenerateNextLayer()
     {
-        return this.resource.gt(this.getPrestigeLimit().pow(39 / 40));
+        return this.resource.gt(this.getPrestigeLimit().pow(20 / 24));
     }
 
     canPrestige()
@@ -540,12 +540,10 @@ class PrestigeLayer
         }
         multi = multi.mul(game.alephLayer.upgrades.prestigeRewards.apply());
         multi = multi.mul(game.restackLayer.permUpgrades.prestigeGains.apply());
-        multi = multi.mul(game.restackLayer.permUpgrades.prestigeGains2.apply());
         let power = game.currentChallenge && game.currentChallenge.effectType === CHALLENGE_EFFECT_PRESTIGEREWARD ? game.currentChallenge.applyEffect() : 1;
         if(this.layer === 0) //better beta
         {
             power *= game.alephLayer.upgrades.betterBetaFormula.apply().toNumber();
-            power *= game.alephLayer.upgrades.betterBetaFormula2.apply().toNumber();
         }
         return Decimal.pow(this.resource.div(lim), 1 / this.getPrestigeCarryOver() * power).mul(multi).floor();
     }
