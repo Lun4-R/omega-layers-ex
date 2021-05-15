@@ -485,7 +485,7 @@ class PrestigeLayer
     //the factor of how much the power on the prestige formula is
     static getPrestigeCarryOverForLayer(layer)
     {
-        return 24 * Math.pow(1.25, Utils.clamp(layer - 2, 0, 128));
+        return 24 * Math.pow(1.17, Utils.clamp(layer - 2, 0, 128));
     }
 
     getPrestigeCarryOver()
