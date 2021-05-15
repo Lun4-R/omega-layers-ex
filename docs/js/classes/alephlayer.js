@@ -57,7 +57,7 @@ class AlephLayer
             layerExponentialBoost: new AlephUpgrade("Increase the exponential difference of boosts between layers, resulting in a large boost!",
                 level => level.lt(6) ? new Decimal([1e100, 1e200, 1e300][level.toNumber()]) : Decimal.dInf,
                 level => [22, 25, 27][level.toNumber()], {
-                    maxLevel: 3,
+                    maxLevel: 2,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0, "")
                 })
         };
