@@ -5,7 +5,7 @@ Vue.component("settings-menu", {
             settings: game.settings,
             exportString: "The exported Save String will appear here. Keep it somewhere safe. Also it cannot be imported to VANILLA VERSION!" +
                 " Click Import to load the save string from the text field.",
-            themes: [["Dark || Default", "dark.css"], ["Light || Eyerape Warning", "light.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"], ["Light-Crimson", "crimson.css"], ["Dark-Crimson", "crimson-original.css"], ["Emerald", "emerald.css"]]
+            themes: [["Dark", "dark.css"], ["Light", "light.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"], ["Crimson", "crimson.css"], ["Dark-Crimson", "crimson-original.css"], ["Emerald", "emerald.css"], ["Gold", "flame.css"]]
         }
     },
     mounted: function()

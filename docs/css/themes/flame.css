@@ -1,0 +1,26 @@
+:root{
+    --background-body: #5a3e00;
+    --background-header: #5a3e00;
+    --color-base: hsl(41, 60%, 20%);
+    --color-primary: #cc8b00;
+    --color-hover: #573b00;
+    --color-hover-strong: #382600;
+    --color-contrast: #ffffff;
+    --color-success: #ffae00;
+    --button-dark: #2e1f00;
+    --notification--error: #221701;
+    --notification--error-border: #533900;
+    --notification--success: #276d10;
+    --notification--success--border: #123f07;
+    --notification--special: #7e6c12;
+    --notification--special--border: #4a3f0e;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+img[src*=".svg"]{
+    filter: invert(0.5);
+}
+

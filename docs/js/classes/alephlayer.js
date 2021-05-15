@@ -33,7 +33,10 @@ class AlephLayer
                 }),
             powerGenerators: new AlephUpgrade("All Power Generators on every Layer are stronger",
                 level => Utils.createValueDilation(Decimal.pow(1e5, Decimal.pow(level, 1.5)).mul(1e20), 0.001),
-                level => Decimal.pow(1.5, level)),
+                level => Decimal.pow(2, level)),
+                powerGenerators2: new AlephUpgrade("All Power Generators on every Layer are even more stronger",
+                level => Utils.createValueDilation(Decimal.pow(1e10, Decimal.pow(level, 1.5)).mul(1e40), 0.001),
+                level => Decimal.pow(4, level)),
             prestigeNoPowerBoost: new AlephUpgrade("Increase Prestige Reward on all Layers that don't have Power Generators",
                 level => Decimal.pow(1e8, level).mul(1e22),
                 level => Decimal.pow(2, level), {
@@ -48,6 +51,12 @@ class AlephLayer
             betterBetaFormula: new AlephUpgrade("The β Prestige Formula is better",
                 level => new Decimal(1e90),
                 level => new Decimal(1).add(level.mul(0.12)), {
+                    maxLevel: 1,
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
+                }),
+                betterBetaFormula2: new AlephUpgrade("The β Prestige Formula is even better",
+                level => new Decimal(1e190),
+                level => new Decimal(1).add(level.mul(0.15)), {
                     maxLevel: 1,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
