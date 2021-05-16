@@ -148,7 +148,7 @@ class ReStackLayer
     getRestackGain()
     {
         let l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
-        return l >= 3 ? Decimal.pow(25, l.sub(3).floor()) : new Decimal(0);
+        return l >= 0 ? Decimal.pow(25, l.sub(0).floor()) : new Decimal(0);
     }
 
     allPermUpgradesBought()
