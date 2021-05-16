@@ -7,47 +7,87 @@ class MetaLayer
         this.resource = new Decimal(1);
 
         this.multiplierUpgrades = [
-            new MetaDynamicLayerUpgrade("Increase the Resource Multiplier",
+            new MetaDynamicLayerUpgrade("MJ001",
                 level => Utils.createValueDilation(level.mul(Decimal.pow(1.1, Decimal.max(0, level.sub(15)))), 0.001).floor(),
                 level => new Decimal(1),
                 level => Decimal.pow(1.25, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost())),
-            new MetaDynamicLayerUpgrade("Increase the Resource Multiplier",
+            new MetaDynamicLayerUpgrade("MJ004",
                 level => Utils.createValueDilation(level.mul(3).mul(Decimal.pow(1.1, Decimal.max(0, level.sub(15)))), 0.001).floor().add(10),
                 level => new Decimal(1),
                 level => Decimal.pow(1.5, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost())),
-            new MetaDynamicLayerUpgrade("Increase the Resource Multiplier",
+            new MetaDynamicLayerUpgrade("MJ016",
                 level => Utils.createValueDilation(level.mul(12).mul(Decimal.pow(1.1, Decimal.max(0, level.sub(15)))), 0.001).floor().add(47),
                 level => new Decimal(1),
                 level => Decimal.pow(2, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost())),
-            new MetaDynamicLayerUpgrade("Increase the Resource Multiplier",
+            new MetaDynamicLayerUpgrade("MJ128",
                 level => Utils.createValueDilation(level.mul(48).mul(Decimal.pow(1.1, Decimal.max(0, level.sub(15)))), 0.001).floor().add(143),
                 level => new Decimal(1),
-                level => Decimal.pow(4, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost()))
+                level => Decimal.pow(4, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost())),
+                new MetaDynamicLayerUpgrade("1MJ001",
+                level => Utils.createValueDilation(level.mul(192).mul(Decimal.pow(1.1, Decimal.max(0, level.sub(15)))), 0.001).floor().add(1000),
+                level => new Decimal(1),
+                level => Decimal.pow(8, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost())),
+            new MetaDynamicLayerUpgrade("1MJ004",
+                level => Utils.createValueDilation(level.mul(768).mul(Decimal.pow(1.1, Decimal.max(0, level.sub(15)))), 0.001).floor().add(10000),
+                level => new Decimal(1),
+                level => Decimal.pow(16, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost())),
+            new MetaDynamicLayerUpgrade("1MJ016",
+                level => Utils.createValueDilation(level.mul(3072).mul(Decimal.pow(1.1, Decimal.max(0, level.sub(15)))), 0.001).floor().add(47000),
+                level => new Decimal(1),
+                level => Decimal.pow(32, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost())),
+            new MetaDynamicLayerUpgrade("1MJ128",
+                level => Utils.createValueDilation(level.mul(12288).mul(Decimal.pow(1.1, Decimal.max(0, level.sub(15)))), 0.001).floor().add(143000),
+                level => new Decimal(1),
+                level => Decimal.pow(64, level.pow(game.restackLayer.upgradeTreeNames.resourceMultipliersLevelScaling.apply())).pow(this.getResourceMultiplierBoost()))
         ];
 
         this.powerUpgrades = [
-            new MetaDynamicLayerUpgrade("Increase the Resource Power",
+            new MetaDynamicLayerUpgrade("Rv101",
                 level => Utils.createValueDilation(level.mul(250).mul(Decimal.pow(1.4, Decimal.max(0, level.sub(5)))), 0.001).floor().add(1000),
                 level => new Decimal(1),
-                level => Decimal.pow(1.2, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                level => Decimal.pow(1.6, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
-            new MetaDynamicLayerUpgrade("Increase the Resource Power",
+            new MetaDynamicLayerUpgrade("Rv102",
                 level => Utils.createValueDilation(level.mul(5000).mul(Decimal.pow(2, Decimal.max(0, level.sub(5)))), 0.001).floor().add(10000),
                 level => new Decimal(1),
+                level => Decimal.pow(1.3, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
+                }),
+            new MetaDynamicLayerUpgrade("Rv103",
+                level => Utils.createValueDilation(level.mul(1e6).mul(Decimal.pow(5, Decimal.max(0, level.sub(3)))), 0.001).floor().add(1e6),
+                level => new Decimal(1),
+                level => Decimal.pow(1.15, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
+                }),
+            new MetaDynamicLayerUpgrade("Rv104",
+                level => Utils.createValueDilation(level.mul(2e12).mul(Decimal.pow(10, Decimal.max(0, level.sub(1)))), 0.001).floor().add(1e12),
+                level => new Decimal(1),
+                level => Decimal.pow(1.15, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
+                }),
+                new MetaDynamicLayerUpgrade("2Rv101",
+                level => Utils.createValueDilation(level.mul(2e60).mul(Decimal.pow(100, Decimal.max(0, level.sub(5)))), 0.001).floor().add(1e40),
+                level => new Decimal(1),
+                level => Decimal.pow(1.8, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
+                }),
+            new MetaDynamicLayerUpgrade("2Rv102",
+                level => Utils.createValueDilation(level.mul(5e150).mul(Decimal.pow(2000, Decimal.max(0, level.sub(5)))), 0.001).floor().add(1e80),
+                level => new Decimal(1),
+                level => Decimal.pow(1.4, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
+                }),
+            new MetaDynamicLayerUpgrade("2Rv103",
+                level => Utils.createValueDilation(level.mul(1e250).mul(Decimal.pow(5000, Decimal.max(0, level.sub(3)))), 0.001).floor().add(1e160),
+                level => new Decimal(1),
                 level => Decimal.pow(1.2, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
-            new MetaDynamicLayerUpgrade("Increase the Resource Power",
-                level => Utils.createValueDilation(level.mul(1e6).mul(Decimal.pow(5, Decimal.max(0, level.sub(3)))), 0.001).floor().add(1e6),
+            new MetaDynamicLayerUpgrade("2Rv104",
+                level => Utils.createValueDilation(level.mul(2e300).mul(Decimal.pow(100000, Decimal.max(0, level.sub(1)))), 0.001).floor().add(1e300),
                 level => new Decimal(1),
                 level => Decimal.pow(1.1, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
-                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
-                }),
-            new MetaDynamicLayerUpgrade("Increase the Resource Power",
-                level => Utils.createValueDilation(level.mul(2e12).mul(Decimal.pow(10, Decimal.max(0, level.sub(1)))), 0.001).floor().add(1e12),
-                level => new Decimal(1),
-                level => Decimal.pow(1.09, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 })
         ];

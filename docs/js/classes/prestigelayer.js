@@ -55,16 +55,16 @@ class PrestigeLayer
         if(layer instanceof Decimal && layer.gte(INFINITY))
         {
             let infinityOrder = Decimal.log(layer, INFINITY).floor();
-            if(infinityOrder.gte(6))
+            if(infinityOrder.gte(4))
             {
                 let exp = PrestigeLayer.getNameForLayer(layer.div(Decimal.pow(INFINITY, infinityOrder)).floor().sub(1));
-                return "(<span class='flipped-v'>Ω</span>↑↑" + functions.formatNumber(infinityOrder, 3, 0, 1e9) + ")<sup>" + exp + "</sup>";
+                return "(Infinite-ERA-STAGE</span>^" + functions.formatNumber(infinityOrder, 1, 0, 1e9) + ")<sup>" + exp + "</sup>";
             }
             return "<span class='flipped-v'>Ω</span><sup>" + PrestigeLayer.getNameForLayer(layer.div(INFINITY).floor().sub(1)) + "</sup>";
         }
-        let letters = "αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ";
-        let orders = "ψϝϛͱϻϙͳϸ";
-        let totalCombinations = (orders.length + 2) * letters.length;
+        let letters = "αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΛBᄃDΣFGΉIJKᄂMПӨPQЯƧƬЦVЩXYZȧ̸̡͚̺̟̳̹͂̀̌b̴̛̬̠̩̰͙̈́͋̇̓̽̇̏̕͝ć̶̪̞̖̣d̶̨̳̙̻̦̲̪́͊̽͋̕ë̴̱̻́̈́̋̌̈͗̽͑̐͠f̷̢̪̳̰̲͙̒̏̉̇́̀̐̑g̵̡̞͙̠̭̝̝̊͗̑̃h̵̡̡̝̗̞̮̮͚̥̺̔̀i̷̥̫̻̾̄̂̀j̴̨̱̪̞̱͇̬͎̒̈̔̓͆̾̒̐́̕ķ̶̠̟͔̤͍̣͇̯̥̍͊̃̋̌͝l̵̟̲̲̎͊̿̀͝ṁ̵̮͑̈́̂̒́͝n̸̢̪͕̺͉͎̤̈̈́̃͐ơ̵̡͕̓̎̀̊̐͠p̸͖͓̞̥̍̓͂͆̾̋͝͝q̴͈͛̐̈́͆̄̄̿ṛ̴͕͈̼͎̻̳̽̓̈́̑͝s̶̡̱̹̯̪͚͕͂̂ť̴̳͕͓͑͂̂̄͐̉́́ū̴̢̮͍͓̤̏͂͒̔͝͝ͅv̸̛͎̲̱̽͂ŵ̵̧̨̛̝͍̤̜̂͑̐̒͐͘͜x̷̻͙̫̱̂̋̑̋y̴̲̆̒̍̿̄̕z̶̭̩̠̾̋͋͊͑͐̈́";
+        let orders = "αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΛBᄃDΣFGΉIJKᄂMПӨPQЯƧƬЦVЩXYZȧ̸̡͚̺̟̳̹͂̀̌b̴̛̬̠̩̰͙̈́͋̇̓̽̇̏̕͝ć̶̪̞̖̣d̶̨̳̙̻̦̲̪́͊̽͋̕ë̴̱̻́̈́̋̌̈͗̽͑̐͠f̷̢̪̳̰̲͙̒̏̉̇́̀̐̑g̵̡̞͙̠̭̝̝̊͗̑̃h̵̡̡̝̗̞̮̮͚̥̺̔̀i̷̥̫̻̾̄̂̀j̴̨̱̪̞̱͇̬͎̒̈̔̓͆̾̒̐́̕ķ̶̠̟͔̤͍̣͇̯̥̍͊̃̋̌͝l̵̟̲̲̎͊̿̀͝ṁ̵̮͑̈́̂̒́͝n̸̢̪͕̺͉͎̤̈̈́̃͐ơ̵̡͕̓̎̀̊̐͠p̸͖͓̞̥̍̓͂͆̾̋͝͝q̴͈͛̐̈́͆̄̄̿ṛ̴͕͈̼͎̻̳̽̓̈́̑͝s̶̡̱̹̯̪͚͕͂̂ť̴̳͕͓͑͂̂̄͐̉́́ū̴̢̮͍͓̤̏͂͒̔͝͝ͅv̸̛͎̲̱̽͂ŵ̵̧̨̛̝͍̤̜̂͑̐̒͐͘͜x̷̻͙̫̱̂̋̑̋y̴̲̆̒̍̿̄̕z̶̭̩̠̾̋͋͊͑͐̈́";
+        let totalCombinations = (orders.length + 8) * letters.length;
         let arrowOrder = Math.floor(Math.log(nLayer) / Math.log(totalCombinations));
         let order = Math.floor(nLayer / letters.length);
         if(order === 0)
@@ -73,11 +73,11 @@ class PrestigeLayer
         }
         if(arrowOrder >= 4)
         {
-            return PrestigeLayer.getNameForLayer(Math.floor(nLayer / Math.pow(totalCombinations, arrowOrder - 1))) + "↑↑" + (arrowOrder - 1);
+            return PrestigeLayer.getNameForLayer(Math.floor(nLayer / Math.pow(totalCombinations, arrowOrder - 1))) + "^^" + (arrowOrder - 1);
         }
         if(nLayer >= totalCombinations)
         {
-            return PrestigeLayer.getNameForLayer(nLayer % totalCombinations) + "↑" + PrestigeLayer.getNameForLayer(Math.floor(nLayer / totalCombinations) - 1);
+            return PrestigeLayer.getNameForLayer(nLayer % totalCombinations) + "^" + PrestigeLayer.getNameForLayer(Math.floor(nLayer / totalCombinations) - 1);
         }
         return "<span>" + letters[letters.length - 1] + (order > 1 ? "<sub>" + orders[order - 2] + "</sub>" : "") + "</span>" + "<sup>" + letters[(nLayer) % letters.length] + "</sup>";
     }
@@ -92,7 +92,7 @@ class PrestigeLayer
             name = name[0].toUpperCase() + name.substr(1);
         }
         let order = Math.floor(layer / (names.length * 2));
-        let prefix = ["", "Om-", "Psi-", "Di-", "Sti-", "He-", "San-", "Kop-", "Sam-", "Sp-"][order];
+        let prefix = ["", "A1-", "B1-", "G1-", "D1-", "E1-", "Z1-", "E1-", "T1-", "I1-"][order];
         return prefix + name;
     }
 
@@ -485,7 +485,7 @@ class PrestigeLayer
     //the factor of how much the power on the prestige formula is
     static getPrestigeCarryOverForLayer(layer)
     {
-        return 24 * Math.pow(1.1, Utils.clamp(layer - 2, 0, 128));
+        return 24 * Math.pow(1.5, Utils.clamp(layer - 2, 0, 7));
     }
 
     getPrestigeCarryOver()
@@ -500,7 +500,7 @@ class PrestigeLayer
 
     canGenerateNextLayer()
     {
-        return this.resource.gt(this.getPrestigeLimit().pow(10 / 40));
+        return this.resource.gt(this.getPrestigeLimit().pow(22 / 24));
     }
 
     canPrestige()

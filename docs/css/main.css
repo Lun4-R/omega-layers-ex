@@ -561,16 +561,16 @@ p.resource-display > span:first-child{
 }
 
 .meta-layer p.resource{
-    font-size: 150%;
+    font-size: 220%;
     min-height: 2em; /*prevent jumping from sub- or superscript*/
 }
 
 .meta-layer p.resource.alpha{
-    font-size: 100%;
+    font-size: 150%;
 }
 
 .meta-layer p.layer{
-    font-size: 90%;
+    font-size: 150%;
 }
 
 .meta-layer .max-all{

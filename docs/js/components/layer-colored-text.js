@@ -4,7 +4,7 @@ Vue.component("layer-colored-text", {
         textColor: function()
         {
             let lid = new Decimal(this.getLayerId());
-            if(this.getLayerId() instanceof Decimal && this.getLayerId().gte(INFINITY))
+            if(this.getLayerId() instanceof Decimal && this.getLayerId().gte("1.78eee308"))
             {
                 return "#cc00ff";
             }
@@ -13,14 +13,14 @@ Vue.component("layer-colored-text", {
             {
                 h += Decimal.log10(lid.div(10000)).toNumber() * 600;
             }
-            let s = Math.min(100, 10 * this.getLayerId());
+            let s = Math.min(100, 1 * this.getLayerId());
             return "hsl(" + h + ", " + s + "%, 50%)";
         },
         textGlow: function()
         {
-            let thickness = 0.025 * this.getLayerId();
-            let t = [Math.min(0.7, thickness), Math.min(0.7, thickness / 2),
-                Math.min(0.7, Math.max(0, thickness - 0.3) / 4)];
+            let thickness = 0.055 * this.getLayerId();
+            let t = [Math.min(2, thickness), Math.min(2, thickness / 4),
+                Math.min(2, Math.max(0.5, thickness - 0.2) / 2)];
             let color = "currentcolor";
             return "0px 0px " + t[0] + "em currentcolor"+
                 ",0px 0px " + t[1] + "em currentcolor"+
