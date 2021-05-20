@@ -40,8 +40,8 @@ class ReStackLayer
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0, "+")
                 })
         };
-        this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second", level => Decimal.pow(1.215, level),
-        level => Decimal.pow(10000, level),
+        this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second", level => Decimal.pow(10, level),
+        level => Decimal.pow(10, level),
         level => Decimal.mul(100),
             level => 1 + 0.2 * level.toNumber(),{
                 maxLevel: 10000
@@ -137,7 +137,7 @@ class ReStackLayer
 
     isUnlocked()
     {
-        return game.highestLayer >= 0;
+        return game.highestLayer >= 6;
     }
 
     getPermUpgradeCost()
@@ -148,7 +148,7 @@ class ReStackLayer
     getRestackGain()
     {
         let l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
-        return l >= 0 ? Decimal.pow(25, l.sub(0).floor()) : new Decimal(0);
+        return l >= 0 ? Decimal.pow(25, l.sub(6).floor()) : new Decimal(0);
     }
 
     allPermUpgradesBought()
